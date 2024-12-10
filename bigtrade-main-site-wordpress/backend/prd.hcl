@@ -1,0 +1,1 @@
+bucket = "bigtrade-terraform-prd"
