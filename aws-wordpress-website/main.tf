@@ -36,7 +36,7 @@ provider "aws" {
 resource "random_string" "random" {
   length = 4
   special = false
-  upper = false  
+  upper = false
 }
 
 locals {
@@ -52,9 +52,9 @@ locals {
     public_subnet2 = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["PUBLIC_SUBNET_2"]
     private_subnet1 = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["PRIVATE_SUBNET_1"]
     private_subnet2 = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["PRIVATE_SUBNET_2"]
-    database_name = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["DATABASE_NAME"]
-    database_username = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["DATABASE_USERNAME"]
-    database_password = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["DATABASE_PASSWORD"]
+    db_name = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["DATABASE_NAME"]
+    db_username = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["DATABASE_USERNAME"]
+    db_password = jsondecode(data.aws_secretsmanager_secret_version.wordpress-secrets.secret_string)["DATABASE_PASSWORD"]
   }
 }
 
@@ -72,18 +72,17 @@ module "wordpress" {
   aws_ami_owner = var.aws_ami_owner
   instance_class = var.instance_class
   instance_type = var.instance_type
-  prv_key = var.prv_key
-  pub_key = var.pub_key
+  key_name = var.key_name
   root_volume_size = var.root_volume_size
-  database_name = local.secrets["database_name"]
-  database_username = local.secrets["database_username"]
-  database_password = local.secrets["database_password"]
+  database_name = local.secrets.db_name
+  database_username = local.secrets.db_username
+  database_password = local.secrets.db_password
 
+  vpc_cidr = local.secrets["vpc_cidr"]
   private_subnet1 = local.secrets["public_subnet1"]
   private_subnet2 = local.secrets["public_subnet2"]
   public_subnet1 = local.secrets["private_subnet1"]
   public_subnet2 = local.secrets["private_subnet2"]
-  vpc_cidr = local.secrets["vpc_cidr"]
 }
 
 module "alb" {

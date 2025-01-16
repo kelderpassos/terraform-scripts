@@ -12,8 +12,7 @@ variable "aws_ami" {}
 variable "aws_ami_owner" {}
 variable "instance_class" {}
 variable "instance_type" {}
-variable "pub_key" {}
-variable "prv_key" {}
+variable "key_name" {}
 variable "root_volume_size" {}
 variable "database_name" {}
 variable "database_username" {}

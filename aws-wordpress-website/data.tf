@@ -4,6 +4,7 @@ data "aws_availability_zones" "azs" {}
 data "aws_acm_certificate" "bigtrade" {
   domain   = var.domain_name
   statuses = ["ISSUED"]
+  most_recent = true
 }
 
 data "aws_secretsmanager_secret_version" "wordpress-secrets" {

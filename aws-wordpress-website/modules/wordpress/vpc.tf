@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
   instance_tenancy = "default"
 
   tags = {
-    name = "${var.project_name}-vpc"
+    Name = "${var.project_name}-vpc"
     created_at = timestamp()
   }
 }
@@ -68,7 +68,7 @@ resource "aws_db_subnet_group" "rds_subnet_grp" {
   subnet_ids = ["${aws_subnet.private_1.id}", "${aws_subnet.private_2.id}"]
 
   tags = {
-    name = "${var.project_name}-private-subnet-2"
+    Name = "${var.project_name}-private-subnet-2"
     subnet_type = "private"
     created_at = timestamp()
   }
@@ -79,21 +79,10 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    name = "${var.project_name}-igw"
+    Name = "${var.project_name}-igw"
     created_at = timestamp()
   }
 }
-
-# nat gateway
-# resource "aws_nat_gateway" "nat_gateway" {
-#   allocation_id = aws_eip.elastic_ip.id
-#   subnet_id = aws_subnet.public_1.id
-
-#   tags = {
-#     name = "bigtrade-vpc-nat-gateway"
-#     created_at = timestamp()
-#   }
-# }
 
 # elastic ip
 resource "aws_eip" "elastic_ip" {
@@ -102,7 +91,7 @@ resource "aws_eip" "elastic_ip" {
   domain = "vpc"
 
   tags = {
-    name = "bigtrade-vpc-eip"
+    Name = "bigtrade-vpc-eip"
     created_at = timestamp()
   }
 }
@@ -122,7 +111,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    name = "${var.project_name}-public-rt"
+    Name = "${var.project_name}-public-rt"
     rt_type = "public"
     created_at = timestamp()
   }
@@ -133,36 +122,6 @@ resource "aws_route_table_association" "public_1" {
   subnet_id = aws_subnet.public_1.id
 }
 
-# resource "aws_route_table" "private" {
-#   vpc_id = aws_vpc.main.id
-
-#   route {
-#     cidr_block = "0.0.0.0/0"
-#     nat_gateway_id = aws_nat_gateway.nat_gateway.id
-#   }
-
-#   tags = {
-#     name = "bigtrade-vpc-private-rt"
-#     rt_type = "private"
-#     created_at = timestamp()
-#   }
-# }
-
-# resource "aws_route_table_association" "public_2" {
-#   route_table_id = aws_route_table.public.id
-#   subnet_id = aws_subnet.public_2.id
-# }
-
-# resource "aws_route_table_association" "private_1" {
-#   route_table_id = aws_route_table.private.id
-#   subnet_id = aws_subnet.private_1.id
-# }
-
-# resource "aws_route_table_association" "private_2" {
-#   route_table_id = aws_route_table.private.id
-#   subnet_id = aws_subnet.private_2.id
-# }
-
 # security group para ec2
 resource "aws_security_group" "vpc" {
   name = "main_vpc_security_group"
@@ -170,7 +129,7 @@ resource "aws_security_group" "vpc" {
   description = "Habilita trafego de entrada e saida para a VPC"
 
   tags = {
-    name = "${var.project_name}-sg"
+    Name = "${var.project_name}-sg"
     created_at = timestamp()
   }
 }
@@ -182,6 +141,11 @@ resource "aws_vpc_security_group_egress_rule" "allow_all" {
   cidr_ipv4 = "0.0.0.0/0"
   from_port = 0
   to_port = 0
+
+  tags = {
+    Name = "${var.project_name}-allow_all"
+    created_at = timestamp()
+  }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
@@ -191,6 +155,11 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
   cidr_ipv4 = "0.0.0.0/0"
   from_port = 22
   to_port = 22
+
+  tags = {
+    Name = "${var.project_name}-allow_ssh"
+    created_at = timestamp()
+  }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_https" {
@@ -200,6 +169,11 @@ resource "aws_vpc_security_group_ingress_rule" "allow_https" {
   cidr_ipv4 = "0.0.0.0/0"
   from_port = 443
   to_port = 443
+
+  tags = {
+    Name = "${var.project_name}-allow_https"
+    created_at = timestamp()
+  }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_http" {
@@ -209,6 +183,11 @@ resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   cidr_ipv4 = "0.0.0.0/0"
   from_port = 80
   to_port = 80
+
+  tags = {
+    Name = "${var.project_name}-allow_http"
+    created_at = timestamp()
+  }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_mysql" {
@@ -218,6 +197,11 @@ resource "aws_vpc_security_group_ingress_rule" "allow_mysql" {
   cidr_ipv4 = "0.0.0.0/0"
   from_port = 3306
   to_port = 3306
+
+  tags = {
+    Name = "${var.project_name}-allow_mysql"
+    created_at = timestamp()
+  }
 }
 
 # security group para rds
@@ -227,7 +211,7 @@ resource "aws_security_group" "rds" {
   description = "Habilita trafego do EC2 p/ RDS"
 
   tags = {
-    name = "${var.project_name}-sg-rds"
+    Name = "${var.project_name}-sg-rds"
     created_at = timestamp()
   }
 }
