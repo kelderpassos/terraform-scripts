@@ -1,0 +1,814 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #fff;
+  background: #080808;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---- Home ---- */
+
+#header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+}
+
+#header-container header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 5%;
+  width: 100%;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 10px 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #daa520;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5%;
+  margin-bottom: 8rem;
+
+  width: 100%;
+}
+
+.title {
+  margin-top: 5rem;
+}
+
+.title h1 {
+  font-size: 28px;
+  margin: 5rem 10rem 0 0;
+}
+
+.title strong {
+  font-size: 60px;
+}
+
+.title span {
+  color: #daa520;
+  font-size: 28px;
+}
+
+.title p {
+  font-size: 28px;
+}
+
+.welcome img {
+  width: 30rem;
+}
+
+.counter-container {
+  padding: 2rem 3rem;
+  font-size: 16px;
+}
+
+.counter-container span {
+  margin: 0.5rem;
+  color: #daa520;
+}
+
+.navigation-welcome {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+}
+
+.navigation-welcome a {
+  border: solid 1px #fff;
+  border-radius: 100%;
+
+  padding: 2rem;
+
+  text-decoration: none;
+  color: #fff;
+}
+
+.navigation-welcome a:hover {
+  background-color: #fff;
+  color: black;
+}
+
+/* ---- About ---- */
+
+#about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  height: 100vh;
+}
+
+.about {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  width: 100%;
+  height: 60%;
+}
+
+.about section {
+  border: solid 1px #fff;
+  border-radius: 20px;
+  
+  text-align: justify;
+  font-size: 14px;
+  
+  padding: 2rem;
+  height: 30rem;
+  width: 35rem;
+}
+
+.about-title {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.about-title-experience li {
+  margin-bottom: 1rem;
+}
+
+.about-skills {
+  margin-bottom: 2rem;
+}
+
+.about-skills h3 {
+  margin: 0 0 1rem 2rem;
+}
+
+.about-skills li {
+  margin-left: 4rem;
+}
+
+.about-skills-img-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  width: 30rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-skills-img-container img {
+  height: 2.5rem;
+  width: 8rem;
+}
+
+/* ---- Portfolio ---- */
+
+#portfolio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: 100vh;
+  width: 100%;
+}
+
+.portfolio-projects {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: justify;
+
+  width: 100%;
+}
+
+.portfolio-projects a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.portfolio-projects section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: solid 1px #fff;
+  border-radius: 20px;
+
+  margin: 2rem 0;
+  padding: 2rem;
+  width: 35rem;
+}
+
+.portfolio-projects h4 {
+  margin: 1rem 0;
+}
+
+.project-img {
+  height: 12rem;
+  width: 22rem;
+  opacity: 0.3;
+}
+
+.project-img:hover {
+  opacity: 1;
+}
+
+/* ---- contact ---- */
+
+#contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+#contact-container h1 {
+  margin-bottom: 2rem;
+}
+
+#contact-container p {
+  font-size: 1.3rem;
+}
+
+.links-container {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 2rem;
+  width: 40rem;
+}
+
+#contact-container section {
+  padding: 2rem;
+}
+
+.links {
+  color: #fff;
+  text-decoration: none;
+}
+
+.links i {
+  font-size: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  margin: 3rem 0;
+  width: 25rem;
+}
+
+input {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#form-sent {
+  font-size: 18px;
+}
+
+.download {
+  background-color: #daa520;
+  padding: 1rem;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  width: 10%;
+}
+
+.navigation a {
+  border: solid 1px #fff;
+  border-radius: 100%;
+
+  padding: 2rem;
+
+  text-decoration: none;
+  color: #fff;
+}
+
+.navigation a:hover {
+  background-color: #fff;
+  color: black;
+}
+
+/* ---- Mobile phone ---- */
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  #header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+  }
+  
+  #header-container header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    padding: 10px 5%;
+    width: 100%;    
+  }
+  
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .image-container img {    
+    width: 8rem;
+  }
+
+  nav ul li {
+    margin: 10px 10px;
+    font-size: 16px;
+  }
+  
+  
+  nav ul li a {
+    font-size: 16px;
+  }
+  
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .title {
+    margin-top: 0;
+  }
+  
+  .title h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    font-size: 20px;
+    margin: 1rem 0;
+    width: 100%;
+  }
+  
+  .title strong {
+    font-size: 26px;
+  }
+  
+  .title span {
+    color: #daa520;
+    font-size: 22px;
+  }
+
+  .title p {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .welcome img {
+    margin-top: 3rem;
+    width: 20rem;
+  }
+
+  .navigation {
+    display: none;
+  }
+  
+  .navigation-welcome {
+    display: none;
+    width: 10%;
+  }
+  
+  .navigation-welcome a {
+    display: none;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  #about-container {
+    height: 100%;
+  }
+  
+  #about-container h1 {
+    margin: 7rem 0;
+  }
+  
+  .about {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .about section {   
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    width: 100%;
+  }
+  
+  .about-title {
+    margin-bottom: 0.3 rem;
+    text-align: center;
+  }
+  
+  .about-title-experience {
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+  
+  .about-skills {
+    margin-bottom: 2rem;
+  }
+  
+  .about-skills h3 {
+    margin: 0 1rem;
+  }
+  
+  .about-skills li {
+    font-size: 14px;
+    margin-left: 2rem;
+  }
+  
+  .about-skills-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    width: 100%;
+  }
+  
+  .about-skills-img-container img {
+    margin: 0.5rem 0;
+    height: 2.5rem;
+    width: 5rem;
+  }
+  
+  #portfolio-container {
+    padding: 1rem;
+    margin-top: 10rem;
+    height: 100%;
+  }
+
+  #portfolio-container h2 {
+    font-size: 18px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .portfolio-projects {
+    margin: 2rem 0;
+    flex-direction: column;
+  }
+  
+  .portfolio-projects section {
+    margin: 1rem 0;
+    padding: 2rem;
+    width: 100%;
+  }
+  
+  .portfolio-projects h4 {
+    margin: 1rem 0;
+  }
+  
+  .project-img {
+    width: 100%;
+  }
+  
+  #contact-container {
+    height: 100%;
+    margin: 5rem;
+  }
+  
+  #contact-container h1 {
+    margin-bottom: 2rem;
+  }
+  
+  #contact-container p {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  .links-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  #contact-container section {
+    padding: 2rem;
+  }
+
+  .links {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .links i {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) { 
+  #header-container header {
+    padding: 10px 5%;
+    width: 100%;    
+  }
+  
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .image-container img {    
+    width: 10rem;
+  }
+
+  nav ul li {
+    margin: 10px 10px;
+  }
+  
+  
+  nav ul li a {
+    font-size: 20px;
+  }
+  
+  .welcome {
+    align-items: center;
+    padding: 0 1rem;
+  }
+    
+  .title h1 {
+    align-items: center;
+    
+    font-size: 20px;
+    margin: 1rem 0;
+    width: 100%;
+  }
+  
+  .title strong {
+    font-size: 36px;
+  }
+  
+  .welcome img {
+    margin-top: 3rem;
+    width: 20rem;
+  }
+    
+  #about-container {
+    height: 100%;
+    margin-top: 2rem;
+  }
+  
+  #about-container h1 {
+    margin-bottom: 2rem;
+  }
+  
+  .about {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  
+  .about section {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+    width: 100%;
+  }
+  
+  .about-title {
+    margin-bottom: 0.3 rem;
+    text-align: center;
+  }
+  
+  .about-title-experience {
+    margin-bottom: 1rem;
+    padding: 0.5rem 2rem;
+    font-size: 18px;
+  }
+  
+  .about-skills {
+    margin-bottom: 2rem;
+  }
+  
+  .about-skills h3 {
+    margin: 0 1rem;
+  }
+  
+  .about-skills li {
+    font-size: 18px;
+    margin-left: 2rem;
+  }
+  
+  .about-skills-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    width: 100%;
+  }
+  
+  .about-skills-img-container img {
+    margin: 0.5rem 0;
+    height: 2.5rem;
+    width: 5rem;
+  }
+  
+  #portfolio-container {
+    padding: 1rem;
+    margin-top: 10rem;
+    height: 100%;
+  }
+
+  #portfolio-container h2 {
+    font-size: 18px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .portfolio-projects {
+    margin: 2rem 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .portfolio-projects section {
+    font-size: 18px;
+    margin: 1rem 0;
+    padding: 2rem;
+    width: 90%;
+  }
+  
+  .portfolio-projects h4 {
+    margin: 1rem 0;
+  }
+  
+  .project-img {
+    width: 100%;
+  }
+
+  #contact-container h1 {
+    margin-bottom: 2rem;
+  }
+  
+  #contact-container p {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  .links-container {
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  #contact-container {
+    padding: 2rem 0;
+  }
+  
+  .links {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .links i {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1800px) { 
+  #about-container {
+    margin-top: 2rem;
+  }
+
+  .about {
+    justify-content:space-around ;
+    padding: 0 1rem;
+  }
+  
+  .about section {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 30%;
+    height: 90%;
+    font-size: 16px;
+  }
+  
+  .about-title {
+    margin-bottom: 0.3 rem;
+    text-align: center;
+  }
+  
+  .about-title-experience {
+    margin-bottom: 1rem;
+    padding: 0.5rem 2rem;
+    font-size: 18px;
+  }
+  
+  .about-skills {
+    margin-bottom: 2rem;
+  }
+  
+  .about-skills h3 {
+    margin: 0 1rem;
+  }
+  
+  .about-skills li {
+    font-size: 14px;
+    margin-left: 2rem;
+  }
+  
+  .about-skills-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    width: 100%;
+  }
+  
+  .about-skills-img-container img {
+    margin: 0.5rem 0;
+    height: 2.5rem;
+    width: 4.5rem;
+  }
+}

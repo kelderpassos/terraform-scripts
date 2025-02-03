@@ -1,0 +1,16 @@
+# name: Deploy Prd
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# permissions:
+#   id-token: write
+#   contents: read
+
+# jobs:
+#   terraform:
+#     uses: ./.github/workflows/terraform.yml
+#     with:
+#       environment: prd

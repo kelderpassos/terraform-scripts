@@ -1,0 +1,1 @@
+bucket = "kmp-terraform-state-prd"
