@@ -1,1 +1,1 @@
-bucket = "bigtrade-terraform-prd"
+bucket = "kmp-terraform-state"
